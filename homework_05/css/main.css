@@ -61,17 +61,7 @@ table {
 }
 
 .row {
-  margin: 0 -10px;
-}
-
-.col-12 {
-  width: 100%;
-  padding: 0 10px;
-}
-
-.col-4 {
-  width: 33.3333333%;
-  padding: 0 10px;
+  display: flex;
 }
 
 body {
@@ -139,7 +129,7 @@ header .banner .motto {
   padding: 50px 0 130px;
   width: 35%;
   height: 100%;
-  font: 700 32px/1.5em Arial, Helvetica, sans-serif;
+  font: 600 32px/1.5em Arial, Helvetica, sans-serif;
   color: #fff;
   overflow-y: hidden;
 }
@@ -153,13 +143,18 @@ main .resize .row {
   margin-bottom: 20px;
 }
 
-
 main .resize a.panel {
   display: block;
+  width: 33.3333333%;
+}
+
+main .resize a.panel:nth-child(even) {
+  margin: 0 20px;
 }
 
 main .resize a.panel figure {
   display: block;
+  min-height: 100%;
   padding: 10px 10px 20px;
   color: #333;
   background-color: #ccc;
@@ -179,11 +174,43 @@ main .resize a.panel figure img {
 }
 
 main .resize a.panel figure p:nth-child(1) {
-  font: 700 14px/1.3em Arial, Helvetica, sans-serif;
+  margin-bottom: 7px;
+  font: 700 15px/1.2em Arial, Helvetica, sans-serif;
+}
+
+main .resize a.panel figure p:nth-child(2) {
+  font: 13px/1.2em Arial, Helvetica, sans-serif;
 }
 /*=====================================*/
 footer {
   flex: 0 0 auto;
   padding: 20px 0;
+  color: #fff;
   background-color: #39c2d7;
+}
+
+footer .resize {
+  display: flex;
+}
+
+footer nav ul {
+  display: flex;
+}
+
+footer nav ul li {
+  margin-right: 20px;
+}
+
+footer nav ul a {
+  color: inherit;
+  font: 700 15px/1.2em Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+}
+
+footer nav ul a:hover {
+  text-decoration: none;
+}
+
+footer .copyright {
+  font: 700 15px/1.2em Arial, Helvetica, sans-serif;
 }
