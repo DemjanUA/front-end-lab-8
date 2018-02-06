@@ -36,13 +36,14 @@ input, textarea, button {
 table {
   border-collapse: collapse;
 }
-.fl {
+.fl, .fl-xl  {
   float: left;
 }
 .fr {
   float: right;
 }
-.clearfix:after {
+.clearfix:after,
+.clearfix-xl:after {
   content: "";
   display: block;
   width: 100%;
@@ -140,16 +141,16 @@ main {
 }
 
 main .resize .row {
-  margin-bottom: 20px;
+  margin-left: -10px;
+  margin-right: -10px;
+  flex-wrap: wrap;
 }
 
 main .resize a.panel {
   display: block;
+  padding: 0 10px;
+  margin-bottom: 20px;
   width: 33.3333333%;
-}
-
-main .resize a.panel:nth-child(even) {
-  margin: 0 20px;
 }
 
 main .resize a.panel figure {
@@ -213,4 +214,161 @@ footer nav ul a:hover {
 
 footer .copyright {
   font: 700 15px/1.2em Arial, Helvetica, sans-serif;
+}
+/*=====================================*/
+@media screen and (max-width: 900px) {
+  .fl-xl {
+    float: none;
+  }
+  .fr-xl {
+    float: none;
+  }
+  .clearfix-xl:after {
+    content: none;
+  }
+
+  .resize {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  header .top-line {
+    padding-top: 30px;
+  }
+
+  header .logo {
+    text-align: center;
+  }
+
+  header nav {
+    margin-left: 0;
+  }
+  header ul {
+    justify-content: center;
+  }
+
+  header ul li {
+    margin: 0;
+  }
+  header ul li a {
+    padding: 0 13px;
+  }
+
+  header .banner {
+    max-height: 100%;
+    overflow-x: hidden;
+  }
+
+  header .banner img {
+    min-height: 530px;
+    width: auto;
+    max-width: none;
+  }
+  
+  header .banner .motto {
+    width: 100%;
+    padding: 50px 130px 130px;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  main .resize a.panel {
+    width: 50%;
+  }
+
+  main .resize a.panel figure img {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer .resize {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  footer .resize nav {
+    margin-bottom: 20px;
+  }
+
+  footer .resize nav ul {
+    justify-content: center;
+  }
+
+  footer .resize .copyright {
+    text-align: center;
+  }
+}
+
+/*=====================================*/
+@media screen and (max-width: 575px) {
+  .resize {
+    padding: 0;
+  }
+
+  header .top-line {
+    padding: 10px 0 0;
+  }
+
+  header .logo {
+    margin-bottom: 5px;
+  }
+
+  header ul {
+    flex-direction: column;
+    background: #eee;
+    border-top: #ccc 1px solid;
+  }
+
+  header ul li {
+    padding-left: 20px;
+    border-bottom: #ccc 1px solid; 
+  }
+
+  header ul li a {
+    padding: 0;
+  }
+
+  header .banner img {
+    height: 245px;
+    min-height: auto;
+  }
+
+  header .banner .motto {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 20px 20px;
+  }
+
+  header .banner .motto span {
+    display: block;
+    padding: 15px 10px;
+    background-color: #39c2d7;
+    font: 600 16px/1.5em Arial, Helvetica, sans-serif;
+  }
+
+  main .resize {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  main .resize a.panel {
+    width: 100%;
+  }
+
+  footer .resize nav {
+    margin-bottom: 10px;
+  }
+
+  footer nav ul {
+    flex-direction: column;
+  }
+  footer nav ul li {
+    margin: 0 0 5px;
+  }
+
+  footer nav ul li a {
+    display: block;
+    text-align: center;
+  }
 }
