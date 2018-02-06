@@ -14,7 +14,7 @@ html, body, p, form, h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-menu, blockquote, form {
+menu, blockquote, form, figure, figcaption {
   padding: 0;
   margin: 0;
 }
@@ -60,7 +60,31 @@ table {
   margin: 0 auto;
 }
 
+.row {
+  margin: 0 -10px;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.col-4 {
+  width: 33.3333333%;
+  padding: 0 10px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 header {
+  flex: 1 0 auto;
+}
+
+header .top-line {
   padding: 20px 0 15px;
 }
 
@@ -84,7 +108,8 @@ header nav li a {
   display: block;
   color: #464547;
   text-transform: uppercase;
-  font: 700 16px/2.6em Arial, Helvetica, sans-serif;
+  font: 700 16px/2.7em Arial, Helvetica, sans-serif;
+  transition: color 0.2s ease;
 }
 
 header nav li a:hover {
@@ -92,7 +117,7 @@ header nav li a:hover {
 }
 
 header .banner {
-
+  position: relative;
 }
 
 header .banner img {
@@ -101,4 +126,64 @@ header .banner img {
   width: 100%;
   height: auto;
 }
+
+header .banner .resize {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header .banner .motto {
+  padding: 50px 0 130px;
+  width: 35%;
+  height: 100%;
+  font: 700 32px/1.5em Arial, Helvetica, sans-serif;
+  color: #fff;
+  overflow-y: hidden;
+}
 /*=====================================*/
+main {
+  flex: 1 0 auto;
+  padding-top: 20px;
+}
+
+main .resize .row {
+  margin-bottom: 20px;
+}
+
+
+main .resize a.panel {
+  display: block;
+}
+
+main .resize a.panel figure {
+  display: block;
+  padding: 10px 10px 20px;
+  color: #333;
+  background-color: #ccc;
+  transition: background-color 0.2s ease;
+}
+
+main .resize a.panel figure:hover  {
+  background-color: #39c2d7;
+}
+
+main .resize a.panel figure img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+main .resize a.panel figure p:nth-child(1) {
+  font: 700 14px/1.3em Arial, Helvetica, sans-serif;
+}
+/*=====================================*/
+footer {
+  flex: 0 0 auto;
+  padding: 20px 0;
+  background-color: #39c2d7;
+}
