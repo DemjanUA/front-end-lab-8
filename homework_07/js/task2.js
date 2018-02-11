@@ -3,13 +3,9 @@
 var secretNumber = 0, prize = 0, min = 0, max = 5, massage = '', userNumber = 0, currentPrize, baseAttemptPrize = 10, prizeCof = 3, rangeCof = 2;
 const maxAttempt = 3;
 
-function getRandomNumberAtRange(min, max) {
-  return Math.floor(min + Math.random() * (max + 1 - min));
-}
-
 if (confirm('Do you want to play a game?')) {
   do {
-    secretNumber = getRandomNumberAtRange(min, max);
+    secretNumber = Math.floor(min + Math.random() * (max + 1 - min));
     for (var i = 3; i >= 1; i--) {
       currentPrize = Math.floor(baseAttemptPrize / (2 ** (maxAttempt - i)));
       massage = 
