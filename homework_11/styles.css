@@ -1,0 +1,62 @@
+/* Your styles goes here */
+#root ul {
+    max-width: 600px;
+    user-select: none;
+}
+
+div, ul, li, span {
+    box-sizing: border-box;
+}
+
+div {
+    padding-left: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+ul.empty {
+    margin-left: 23px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+ul li span {
+    position: relative;
+    display: block;
+    padding: 2px 0 2px 25px;
+    cursor: pointer;
+}
+
+ul li span:hover,
+ul.empty:hover {
+    background: rgb(239, 239, 239);
+}
+
+ul li .material-icons {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: rgb(237, 188, 11);
+    font-size: 1.3em;
+}
+
+ul li.file .material-icons {
+    color: rgb(187, 187, 187);
+}
+
+li.folder > span i {
+    display: none;
+}
+
+li.folder.close > span i:nth-child(1) {
+    display: block;
+}
+
+li.folder > span i:nth-child(2) {
+    display: block;
+}
+
+li.close > ul {
+    display: none;
+}
