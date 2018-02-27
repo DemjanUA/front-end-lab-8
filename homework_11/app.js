@@ -1,14 +1,17 @@
 var rootNode = document.getElementById("root");
-
 let container = document.createElement('ul');
 
 function createIcon(name) {
     let icon = document.createElement('i');
     icon.className = 'material-icons';
     icon.innerHTML = name;
+
     return icon;
 }
 
+function appendChildren(...children) {
+    children.forEach(e => this.appendChild(e));
+}
 
 function Folder(data) {
     let openFolderIcon = createIcon('folder');
@@ -16,8 +19,8 @@ function Folder(data) {
 
     let folderTitle = document.createElement('span');
     folderTitle.innerHTML = data.title;
-    folderTitle.appendChild(openFolderIcon);
-    folderTitle.appendChild(closeFolderIcon);
+    
+    appendChildren.call(folderTitle, openFolderIcon, closeFolderIcon);
 
     let view = document.createElement('li');
     view.className = 'folder close';
@@ -30,9 +33,8 @@ function Folder(data) {
         item.appendChild(itemTitle);
         inner.appendChild(item);
     }
-     
-    view.appendChild(folderTitle);
-    view.appendChild(inner);
+
+    appendChildren.call(view, folderTitle, inner)
 
     this.inner = inner;
     this.view = view;
@@ -41,9 +43,7 @@ function Folder(data) {
 }
 
 function File(data) {
-    let fileIcon = document.createElement('i');
-    fileIcon.innerHTML = 'insert_drive_file';
-    fileIcon.className = 'material-icons';
+    let fileIcon = createIcon('insert_drive_file');
 
     let fileTitle = document.createElement('span');
     fileTitle.innerHTML = data.title;
@@ -58,14 +58,13 @@ function File(data) {
     return this;
 }
 
-
 function traverse(node, parent) {
     node.forEach(e => {
         let element = (e.folder) ? new Folder(e) : new File(e);
         if (e.children) {
             traverse(e.children, element.inner);
         }
-        parent.appendChild(element.view)
+        parent.appendChild(element.view);
     });
     return 0;
 }

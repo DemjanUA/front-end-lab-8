@@ -15,10 +15,16 @@ div {
 ul {
     list-style-type: none;
 }
+
 ul.empty {
     margin-left: 23px;
     padding: 2px;
     cursor: pointer;
+}
+
+ul li span:hover,
+ul.empty:hover {
+    background: rgb(239, 239, 239);
 }
 
 ul li span {
@@ -26,11 +32,6 @@ ul li span {
     display: block;
     padding: 2px 0 2px 25px;
     cursor: pointer;
-}
-
-ul li span:hover,
-ul.empty:hover {
-    background: rgb(239, 239, 239);
 }
 
 ul li .material-icons {
