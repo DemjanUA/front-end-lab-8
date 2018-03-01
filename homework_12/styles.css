@@ -1,1 +1,61 @@
-/* Your styles goes here */
+body {
+  background-color: rgb(26, 25, 30);
+  color: rgb(157, 157, 132);
+}
+
+body::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.thumbnail {
+  float: left;
+  width: 16.66666666666667%;
+  cursor: pointer;
+}
+
+.thumbnail:hover {
+  background-color: #2B2B2B;
+}
+
+
+.thumbnail>img {
+  display: block;
+  max-width: 100%;
+}
+
+.thumbnail .title {
+  margin-left: 8px;
+  margin-right: 8px;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumbnail .title span {
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.thumbnail .title img {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.tank-details {
+  display: flex;
+}
+
+.tank-details .right-contet table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.tank-details .right-contet table td {
+  padding: 10px;
+  border: currentColor 1px solid;
+  font-size: 18px;
+}
