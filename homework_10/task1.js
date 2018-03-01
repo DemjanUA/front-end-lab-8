@@ -1,4 +1,4 @@
-function debounce(callback, delay ) {
+function debounce(callback, delay) {
   let result, mightInvoke = true, timer = null;
 
   return function() {
