@@ -2,6 +2,44 @@
 
 const root = document.getElementById('root');
 
+document.addEventListener('click', e => {
+  let target = e.target;
+  let thumbnail = target.closest('.thumbnail');
+  let backBtn = target.closest('.back-btn');
+
+  if (thumbnail) {
+    window.location.hash = thumbnail.dataset.id;
+  }
+
+  if (backBtn) {
+    window.location.hash = '';
+  }
+});
+
+window.addEventListener('hashchange', e => {
+  Router();
+});
+
+let content = createThumbnailsPage(tanks);
+root.appendChild(content);
+
+let Router = function(url) {
+  if (!window.location.hash) {
+    let newContent = createThumbnailsPage(tanks)
+    content.parentElement.replaceChild(newContent, content);
+    content = newContent;
+  }
+  if (window.location.hash) {
+    let tankName = decodeURI(window.location.hash.slice(1));
+    let tank = tanks.find(function(e) {
+      return (tankName === e.model ? true : false);
+    })
+    let newContent = createTankDetailsPage(tank)
+    content.parentElement.replaceChild(newContent, content);
+    content = newContent;
+  }
+}
+
 function createElement(tag, attr, children) {
   let node = document.createElement(tag);
 
@@ -30,7 +68,7 @@ function createThumbnailsPage(list) {
     let flag = createElement('img', {'src' : e.country_image});
     let titleText = createElement('span', {}, `${e.level} ${e.model}`);
     let title = createElement('h3', {'class' : 'title'}, [flag, titleText]);
-    let thumbnail = createElement('div', {'class' : 'thumbnail'}, [image, title]);
+    let thumbnail = createElement('div', {'class' : 'thumbnail', 'data-id' : encodeURI(e.model)}, [image, title]);
 
     return thumbnail;
   });
@@ -95,18 +133,3 @@ function createTankDetailsPage(tank) {
 
   return container;
 }
-
-const content = createTankDetailsPage(tanks[0]);
-//const content = createThumbnailsPage(tanks);
-
-root.appendChild(content);
-
-console.log(content);
-
-let e1 = createElement('div', {'class' : 'class1', 'value' : 'value1'});
-let e2 = createElement('div', {'class' : 'class1', 'value' : 'value1'});
-let e3 = createElement('p', {'class' : 'class1', 'value' : 'value1'}, 'some string');
-let e4 = createElement('div', {'class' : 'class1', 'value' : 'value1'}, [e1, e2, e3]);
-let e5 = createElement('div', {'class' : 'class1', 'value' : 'value1'}, [e4, 'some string']);
-
-console.log(e5)

@@ -59,3 +59,19 @@ body::after {
   border: currentColor 1px solid;
   font-size: 18px;
 }
+
+.tank-details .right-contet{
+  flex-grow: 1;
+}
+
+.tank-details .left-contet .back-btn {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tank-details .left-contet h1 img {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 8px;
+}
