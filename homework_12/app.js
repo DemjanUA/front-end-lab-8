@@ -65,10 +65,10 @@ function createThumbnailsPage(list) {
 
   let thumbnails = list.map(e => {
     let image = createElement('img', {'src' : e.preview});
-    let flag = createElement('img', {'src' : e.country_image});
+    let flag = createElement('img', {'src' : e.country_image, 'title': e.country});
     let titleText = createElement('span', {}, `${e.level} ${e.model}`);
-    let title = createElement('h3', {'class' : 'title'}, [flag, titleText]);
-    let thumbnail = createElement('div', {'class' : 'thumbnail', 'data-id' : encodeURI(e.model)}, [image, title]);
+    let title = createElement('h3', {'class' : 'title', 'title': e.model}, [flag, titleText]);
+    let thumbnail = createElement('div', {'class' : 'thumbnail', 'data-id' : encodeURI(e.model), 'title': 'Click to details'}, [image, title]);
 
     return thumbnail;
   });
@@ -120,7 +120,7 @@ function createTankDetailsPage(tank) {
     [
       createElement('div', {'class' : 'left-contet'}, [
         createElement('h1', {}, [
-          createElement('img', {'src' : tank.country_image}),
+          createElement('img', {'src' : tank.country_image, 'title': tank.country}),
           `${tank.model} (level ${tank.level})`
         ]),
         createElement('h2', {}, 'Preview'),
